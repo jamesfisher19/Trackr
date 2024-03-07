@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Tracker</title>
+    <script type="text/javascript">
+        function toggleForms(event) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+
+            if (event.target.id === 'showLoginForm') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else if (event.target.id === 'showSignupForm') {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to the Job Tracker!</h1>
+    
+    <!-- Buttons to show forms -->
+    <button id="showLoginForm" onclick="toggleForms(event)">Login</button>
+    <button id="showSignupForm" onclick="toggleForms(event)">Sign Up</button>
+
+    <!-- Login Form (initially hidden) -->
+    <div id="loginForm" style="display: none;">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" id="id_username" required>
+            
+            <label for="id_password">Password:</label>
+            <input type="password" name="password" id="id_password" required>
+            <input type="hidden" name="next" value="{% url 'tracker' %}">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Signup Form (initially hidden) -->
+    <div id="signupForm" style="display: none;">
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <!-- Username field -->
+            <label for="id_signup_username">Username:</label>
+            <input type="text" name="username" id="id_signup_username" required>
+    
+            <!-- Email field -->
+            <label for="id_signup_email">Email:</label>
+            <input type="email" name="email" id="id_signup_email" required>
+    
+            <!-- Password field -->
+            <label for="id_signup_password1">Password:</label>
+            <input type="password" name="password1" id="id_signup_password1" required>
+    
+            <!-- Password confirmation field -->
+            <label for="id_signup_password2">Confirm Password:</label>
+            <input type="password" name="password2" id="id_signup_password2" required>
+    
+            <!-- Submit button -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <!-- Error messages -->
+    {% if form.errors %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    
+</body>
+</html>
