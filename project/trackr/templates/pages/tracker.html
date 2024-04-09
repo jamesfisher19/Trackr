@@ -4,14 +4,14 @@
 <head>
     {%load static %}
     <link rel="stylesheet" href="{% static 'tracker.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha384-9/smKNX9W1dH7sR1ePtVi8sn5T01wGFKbX5IXSUXfzJUN8kHi/5SgaF4qgaNwn8" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Job Tracker</title>
 </head>
 
 <body>
     <div class="container text-center">
-        <h1>Trackr</h1>
+        <h1 class="display-4 text-center font-weight-bold">Trackr</h1>
     </div>
 
     <div class="trackr-container">
@@ -26,7 +26,7 @@
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="company_name">Company Name:</label>
-                            <input type="text" class="form-control" id="company_name" name="company_name" required>
+                            <input type="text" id="company_name" name="company_name" required>
                         </div>
 
                         <div class="form-group">
@@ -85,8 +85,8 @@
                         </div>
 
                         <div class="filter-buttons-wrapper">
-                            <button type="submit">Filter</button>
-                            <button type="button" id="clearFilters">Clear Filters</button>
+                            <button type="submit" class="btn btn-primary mt-2">Filter</button>
+                            <button type="button" id="clearFilters" class="btn btn-warning mt-2">Clear Filters</button>
                         </div>
 
                     </form>
@@ -106,7 +106,7 @@
                         Status: {{ job.get_applied_status_display }}
                         <form action="{% url 'delete_job' job.id %}" method="post" onsubmit="return confirmDelete()">
                             {% csrf_token %}
-                            <button type="submit">Delete</button>
+                            <button type="submit" class="btn btn-danger mt-2">Delete</button>
                         </form>
 
                         <script>
@@ -124,7 +124,7 @@
         
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
-            <button type="submit">Logout</button>
+            <button type="submit" class="btn btn-secondary mt-2">Logout</button>
         </form>
 
         <!-- JOB CREATION SCRIPT -->
@@ -199,7 +199,7 @@
                             Status: ${job.applied_status ? 'Applied' : 'Not Applied'}
                             <form action="/delete_job/${job.id}/" method="post" onsubmit="return confirmDelete()">
                                 <input type="hidden" name="csrfmiddlewaretoken" value="${getCsrfToken()}">
-                                <button type="submit">Delete</button>
+                                <button type="submit" class="btn btn-danger mt-2">Delete</button>
                             </form>
                         `;
                             jobListElement.appendChild(li);
