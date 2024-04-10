@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-rna_=r5-ewhkz#)7_ej=xe*-s264$j8u4bnnuog&(25dvr=v1s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mytrackr-23a28849caa7.herokuapp.com']
 
 
 # Application definition
