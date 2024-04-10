@@ -1,0 +1,125 @@
+h1 {
+    font-size: 50px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+
+    .home-container {
+        width: 90%;
+    }
+}
+
+body {
+    background-color: #D9DBD9 !important;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.home-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .container, body {
+        padding: 10px;
+    }
+}
+
+button, input[type="submit"], input[type="text"], input[type="email"], input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-toggle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #0056b3;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.toggle-option {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: transparent;
+    transition: color 0.3s ease;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+
+.toggle-option.active {
+    color: #000000;
+}
+
+.toggle-option:not(.active) {
+    color: #000000;
+    background-color: transparent;
+}
+
+#loginForm, #signupForm {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
